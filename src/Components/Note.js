@@ -21,7 +21,7 @@ class Note extends Component {
 
     submitHandler = async(e) =>{
         e.preventDefault()
-        await axios.post('/notes/add', this.state)
+        await axios.post('/api/notes/add', this.state)
         this.setState({title:'',note:''})
         this.props.isUpdatedHandler()
         // this.props.isClickedOutHandler()

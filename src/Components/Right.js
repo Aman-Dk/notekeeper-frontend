@@ -38,19 +38,19 @@ class Right extends Component {
 
     isClickedOutHandler = async () => {
         this.setState({ check: false, edit: false, visibility: 'visible' })
-        const fetchedNotes = await axios.get('/notes')
+        const fetchedNotes = await axios.get('/api/notes')
         this.setState({ notes: fetchedNotes.data, check: false })
     }
 
     // called when new note is added
     isUpdatedHandler = async () => {
-        const fetchedNotes = await axios.get('/notes')
+        const fetchedNotes = await axios.get('/api/notes')
         this.setState({ notes: fetchedNotes.data, check: false })
     }
 
     deleteHandler = async (noteId) => {
-        await axios.post(`/notes/delete/${noteId}`)
-        const fetchedNotes = await axios.get('/notes')
+        await axios.post(`/api/notes/delete/${noteId}`)
+        const fetchedNotes = await axios.get('/api/notes')
         this.setState({ notes: fetchedNotes.data, check: false })
     }
 
@@ -68,7 +68,7 @@ class Right extends Component {
     submitHandler = async (e) => {
         e.preventDefault()
         const data = {id:this.state.id,title:this.state.title,note:this.state.note}
-        await axios.post('/notes/edit', data)
+        await axios.post('/api/notes/edit', data)
         this.isClickedOutHandler()
         // const fetchedNotes = await axios.get('/notes')
         // this.setState({ notes: fetchedNotes.data, check: false })
