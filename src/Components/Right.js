@@ -27,7 +27,7 @@ class Right extends Component {
 
     async componentDidMount() {
         // const fetchedNotes = await axios.get('/notes')
-        const fetchedNotes = await axios.get('/notes')
+        const fetchedNotes = await axios.get('/api/notes')
         console.log(fetchedNotes.data)
         this.setState({ notes: fetchedNotes.data })
     }
