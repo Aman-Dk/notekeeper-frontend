@@ -4,7 +4,8 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://notekeeper--backend.herokuapp.com',
+//       target: 'https://notekeeper--backend.herokuapp.com',
+      target: 'https://https://app-notekeeper.netlify.app/',
       changeOrigin: true,
     })
   );
